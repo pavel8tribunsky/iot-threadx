@@ -1,0 +1,48 @@
+{
+  "configurations": [
+    {
+      "name": "Win (ocd/stlink)",
+      "cwd": "${workspaceRoot}",
+      "executable": "${config:executable}",
+      "interface": "swd",
+      "request": "launch",
+      "type": "cortex-debug",
+      "runToEntryPoint": "main",
+      "showDevDebugOutput": "raw",
+      "servertype": "openocd",
+      // "device": "STM32F407VET6",
+      // "svdFile": "../openocd/stm32f407.svd",
+      "svdFile": "${config:svdFile}",
+      "liveWatch": {
+        "enabled": true,
+        "samplesPerSecond": 4
+      },
+      "configFiles": [
+        "interface/stlink.cfg",
+        "target/${config:targetFamily}.cfg"
+      ]
+    },
+    {
+      "name": "Debug (ocd/stlink)",
+      "cwd": "${workspaceRoot}",
+      "executable": "${config:executable}",
+      "interface": "swd",
+      "request": "launch",
+      "type": "cortex-debug",
+      "servertype": "openocd",
+      "device": "${config:device}",
+      "runToEntryPoint": "main",
+      "showDevDebugOutput": "raw",
+      "svdFile": "${config:svdFile}",
+      "liveWatch": {
+        "enabled": false,
+        "samplesPerSecond": 4
+      },
+      "configFiles": [
+        "interface/stlink.cfg",
+        "target/${config:targetFamily}.cfg"
+      ]
+    },
+  ],
+  "version": "0.2.0"
+}
