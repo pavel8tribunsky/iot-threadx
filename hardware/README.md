@@ -4,6 +4,8 @@
 
 ![Board exterior](doc/STM32F4xx_DevEBox.jpg)
 
+> **ATENTION!** Native 8 MHz XTAL is replaced with the 25 MHz XTAL.
+
 ## Project structure
 
 - [firmware](firmware) - firmware sources and building settings
@@ -14,9 +16,6 @@ The project is using STM32CubeMX for MCU peripheral configuration:
 
 
 # Pinout
-
-
-
 
 |  Pin |    Signal   |
 |:----:|:-----------:|

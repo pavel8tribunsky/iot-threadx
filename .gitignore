@@ -60,3 +60,9 @@ dkms.conf
 *.7zip
 *.rar
 *.tar.gz
+
+# trash
+*.vc.db
+*.vc.db-shm
+*.vc.db-wal
+*LICENSE.*
