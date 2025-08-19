@@ -55,11 +55,7 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-extern RTC_HandleTypeDef hrtc;
-extern TIM_HandleTypeDef htim3;
-extern TIM_HandleTypeDef htim6;
-extern TIM_HandleTypeDef htim7;
-extern TIM_HandleTypeDef htim8;
+extern ETH_HandleTypeDef heth;
 extern TIM_HandleTypeDef htim14;
 
 /* USER CODE BEGIN EV */
@@ -165,34 +161,6 @@ void DebugMon_Handler(void)
 /******************************************************************************/
 
 /**
-  * @brief This function handles TIM3 global interrupt.
-  */
-void TIM3_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM3_IRQn 0 */
-
-  /* USER CODE END TIM3_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim3);
-  /* USER CODE BEGIN TIM3_IRQn 1 */
-
-  /* USER CODE END TIM3_IRQn 1 */
-}
-
-/**
-  * @brief This function handles RTC alarms A and B interrupt through EXTI line 17.
-  */
-void RTC_Alarm_IRQHandler(void)
-{
-  /* USER CODE BEGIN RTC_Alarm_IRQn 0 */
-
-  /* USER CODE END RTC_Alarm_IRQn 0 */
-  HAL_RTC_AlarmIRQHandler(&hrtc);
-  /* USER CODE BEGIN RTC_Alarm_IRQn 1 */
-
-  /* USER CODE END RTC_Alarm_IRQn 1 */
-}
-
-/**
   * @brief This function handles TIM8 trigger and commutation interrupts and TIM14 global interrupt.
   */
 void TIM8_TRG_COM_TIM14_IRQHandler(void)
@@ -200,7 +168,6 @@ void TIM8_TRG_COM_TIM14_IRQHandler(void)
   /* USER CODE BEGIN TIM8_TRG_COM_TIM14_IRQn 0 */
 
   /* USER CODE END TIM8_TRG_COM_TIM14_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim8);
   HAL_TIM_IRQHandler(&htim14);
   /* USER CODE BEGIN TIM8_TRG_COM_TIM14_IRQn 1 */
 
@@ -208,31 +175,17 @@ void TIM8_TRG_COM_TIM14_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles TIM6 global interrupt, DAC1 and DAC2 underrun error interrupts.
+  * @brief This function handles Ethernet global interrupt.
   */
-void TIM6_DAC_IRQHandler(void)
+void ETH_IRQHandler(void)
 {
-  /* USER CODE BEGIN TIM6_DAC_IRQn 0 */
+  /* USER CODE BEGIN ETH_IRQn 0 */
 
-  /* USER CODE END TIM6_DAC_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim6);
-  /* USER CODE BEGIN TIM6_DAC_IRQn 1 */
+  /* USER CODE END ETH_IRQn 0 */
+  HAL_ETH_IRQHandler(&heth);
+  /* USER CODE BEGIN ETH_IRQn 1 */
 
-  /* USER CODE END TIM6_DAC_IRQn 1 */
-}
-
-/**
-  * @brief This function handles TIM7 global interrupt.
-  */
-void TIM7_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM7_IRQn 0 */
-
-  /* USER CODE END TIM7_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim7);
-  /* USER CODE BEGIN TIM7_IRQn 1 */
-
-  /* USER CODE END TIM7_IRQn 1 */
+  /* USER CODE END ETH_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
