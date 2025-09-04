@@ -68,3 +68,4 @@ dkms.conf
 *.vc.db-shm
 *.vc.db-wal
 *LICENSE.*
+.mxproject

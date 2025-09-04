@@ -54,14 +54,14 @@ set(MX_Include_Dirs
 
 # STM32CubeMX generated application sources
 set(MX_Application_Src
-    ${CMAKE_CURRENT_SOURCE_DIR}/../../LevelX/Target/lx_stm32_nor_custom_driver.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/../../LevelX/Target/lx_stm32_nand_custom_driver.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../AZURE_RTOS/App/app_azure_rtos.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/../../NetXDuo/App/app_netxduo.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../NetXDuo/Target/nx_stm32_custom_driver.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/../../FileX/App/app_filex.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../NetXDuo/App/app_netxduo.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../FileX/Target/fx_stm32_custom_driver.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../FileX/Target/fx_stm32_sd_driver_glue.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../FileX/App/app_filex.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../LevelX/Target/lx_stm32_nor_custom_driver.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../LevelX/Target/lx_stm32_nand_custom_driver.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/tx_initialize_low_level.s
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/main.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/gpio.c
@@ -69,6 +69,7 @@ set(MX_Application_Src
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/eth.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/sdio.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/spi.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/tim.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/stm32f4xx_it.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/stm32f4xx_hal_msp.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/stm32f4xx_hal_timebase_tim.c
