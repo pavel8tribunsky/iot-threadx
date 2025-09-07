@@ -21,13 +21,13 @@ The project is using STM32CubeMX for MCU peripheral configuration:
 |:----:|:-----------:|
 |  PA1 | ETH_REF_CLK |
 |  PA2 |   ETH_MDIO  |
-|  PC1 |   ETH_MDC   |
 |  PA7 |  ETH_CRS_DV |
-|  PC4 |   ETH_RXD0  |
-|  PC5 |   ETH_RXD1  |
 | PB11 |  ETH_TX_EN  |
 | PB12 |   ETH_TXD0  |
 | PB13 |   ETH_TXD1  |
+|  PC1 |   ETH_MDC   |
+|  PC4 |   ETH_RXD0  |
+|  PC5 |   ETH_RXD1  |
 
 # MCU perupherals
 

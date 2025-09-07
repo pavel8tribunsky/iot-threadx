@@ -29,6 +29,10 @@
     "device": "STM32F407VET6",
     "svdFile": "${workspaceRoot}/../openocd/stm32f407.svd",
     "targetFamily": "stm32f4x",
+    "files.associations": {
+        "nx_stm32_eth_config.h": "c",
+        "app_netxduo.h": "c"
+    },
     //"jlink-id": "nucleo-f030", //-usb ${config:jlink-id}
     // "toolchain": "${env:USERPROFILE}/../../arm_development_tools/arm_gnu_toolchain-13.2.1"
     //"toolchain": "${env:USERPROFILE}/xpack-arm-none-eabi-gcc-13.2.1-1.1"
