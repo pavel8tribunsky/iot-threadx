@@ -94,68 +94,70 @@ VOID tx_application_define(VOID* first_unused_memory) {
 
         memory_ptr = (VOID*)&tx_app_byte_pool;
 
-        if (App_ThreadX_Init(memory_ptr) != TX_SUCCESS) {
-            /* USER CODE BEGIN  App_ThreadX_Init_Error */
-            Error_Handler();
-            /* USER CODE END  App_ThreadX_Init_Error */
-        }
+        // if (App_ThreadX_Init(memory_ptr) != TX_SUCCESS) {
+        //     /* USER CODE BEGIN  App_ThreadX_Init_Error */
+        //     Error_Handler();
+        //     /* USER CODE END  App_ThreadX_Init_Error */
+        // }
 
         /* USER CODE BEGIN  App_ThreadX_Init_Success */
-
+        tx_thread_create(&my_thread, "My Thread", my_thread_entry, 0x1234,
+                         memory_ptr, 1024, 3, 3, TX_NO_TIME_SLICE,
+                         TX_AUTO_START);
         /* USER CODE END  App_ThreadX_Init_Success */
     }
 
-    if (tx_byte_pool_create(&fx_app_byte_pool, "Fx App memory pool",
-                            fx_byte_pool_buffer,
-                            FX_APP_MEM_POOL_SIZE) != TX_SUCCESS) {
-        /* USER CODE BEGIN FX_Byte_Pool_Error */
-        Error_Handler();
-        /* USER CODE END FX_Byte_Pool_Error */
-    } else {
-        /* USER CODE BEGIN FX_Byte_Pool_Success */
+    // if (tx_byte_pool_create(&fx_app_byte_pool, "Fx App memory pool",
+    //                         fx_byte_pool_buffer,
+    //                         FX_APP_MEM_POOL_SIZE) != TX_SUCCESS) {
+    //     /* USER CODE BEGIN FX_Byte_Pool_Error */
+    //     Error_Handler();
+    //     /* USER CODE END FX_Byte_Pool_Error */
+    // } else {
+    //     /* USER CODE BEGIN FX_Byte_Pool_Success */
 
-        /* USER CODE END FX_Byte_Pool_Success */
+    //     /* USER CODE END FX_Byte_Pool_Success */
 
-        memory_ptr = (VOID*)&fx_app_byte_pool;
+    //     memory_ptr = (VOID*)&fx_app_byte_pool;
 
-        if (MX_FileX_Init(memory_ptr) != FX_SUCCESS) {
-            /* USER CODE BEGIN MX_FileX_Init_Error */
-            Error_Handler();
-            /* USER CODE END MX_FileX_Init_Error */
-        }
+    //     if (MX_FileX_Init(memory_ptr) != FX_SUCCESS) {
+    //         /* USER CODE BEGIN MX_FileX_Init_Error */
+    //         Error_Handler();
+    //         /* USER CODE END MX_FileX_Init_Error */
+    //     }
 
-        /* USER CODE BEGIN MX_FileX_Init_Success */
+    //     /* USER CODE BEGIN MX_FileX_Init_Success */
 
-        /* USER CODE END MX_FileX_Init_Success */
-    }
+    //     /* USER CODE END MX_FileX_Init_Success */
+    // }
 
-    if (tx_byte_pool_create(&nx_app_byte_pool, "Nx App memory pool",
-                            nx_byte_pool_buffer,
-                            NX_APP_MEM_POOL_SIZE) != TX_SUCCESS) {
-        /* USER CODE BEGIN NX_Byte_Pool_Error */
-        Error_Handler();
-        /* USER CODE END NX_Byte_Pool_Error */
-    } else {
-        /* USER CODE BEGIN TX_Byte_Pool_Success */
+    // if (tx_byte_pool_create(&nx_app_byte_pool, "Nx App memory pool",
+    //                         nx_byte_pool_buffer,
+    //                         NX_APP_MEM_POOL_SIZE) != TX_SUCCESS) {
+    //     /* USER CODE BEGIN NX_Byte_Pool_Error */
+    //     Error_Handler();
+    //     /* USER CODE END NX_Byte_Pool_Error */
+    // } else {
+    //     /* USER CODE BEGIN TX_Byte_Pool_Success */
 
-        /* USER CODE END TX_Byte_Pool_Success */
+    //     /* USER CODE END TX_Byte_Pool_Success */
 
-        memory_ptr = (VOID*)&nx_app_byte_pool;
+    //     memory_ptr = (VOID*)&nx_app_byte_pool;
 
-        if (MX_NetXDuo_Init(memory_ptr) != NX_SUCCESS) {
-            /* USER CODE BEGIN MX_NetXDuo_Init_Error */
-            Error_Handler();
-            /* USER CODE END MX_NetXDuo_Init_Error */
-        }
+    //     if (MX_NetXDuo_Init(memory_ptr) != NX_SUCCESS) {
+    //         /* USER CODE BEGIN MX_NetXDuo_Init_Error */
+    //         Error_Handler();
+    //         /* USER CODE END MX_NetXDuo_Init_Error */
+    //     }
 
-        /* USER CODE BEGIN MX_NetXDuo_Init_Success */
+    //     /* USER CODE BEGIN MX_NetXDuo_Init_Success */
 
-        /* USER CODE END MX_NetXDuo_Init_Success */
-    }
+    //     /* USER CODE END MX_NetXDuo_Init_Success */
+    // }
 
-    tx_thread_create(&my_thread, "My Thread", my_thread_entry, 0x1234,
-                     first_unused_memory, 1024, 3, 3, TX_NO_TIME_SLICE,
-                     TX_AUTO_START);
+    // tx_thread_create(&my_thread, "My Thread", my_thread_entry, 0x1234,
+    //                  first_unused_memory, 1024, 3, 3, TX_NO_TIME_SLICE,
+    //                  TX_AUTO_START);
 }
 
 /* USER CODE BEGIN  0 */
@@ -163,10 +165,11 @@ void my_thread_entry(ULONG thread_input) {
     /* Enter into a forever loop. */
     while (1) {
         /* Increment thread counter. */
-        my_thread_counter++;
-        HAL_GPIO_TogglePin(LED_USR_GPIO_Port, LED_USR_Pin);
+        // my_thread_counter++;
+        // HAL_GPIO_TogglePin(LED_USR_GPIO_Port, LED_USR_Pin);
+        GPIOE->ODR ^= 1 << 9;
         /* Sleep for 1 tick. */
-        tx_thread_sleep(10000);
+        tx_thread_sleep(50);
     }
 }
 /* USER CODE END  0 */
